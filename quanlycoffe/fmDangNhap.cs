@@ -25,14 +25,17 @@ namespace Form_DangNhap
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
 
             using (QuanLyQuanCafeEntities qlcf = new QuanLyQuanCafeEntities())
             {
                 if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text))
                 {
+                    SessionLogin.userID = null;
                     Account acc = qlcf.Accounts.FirstOrDefault(x => x.UserName == textBox1.Text && x.PassWord == textBox2.Text);
                     if (acc != null)
                     {
+
                         string userid = (from b in qlcf.Accounts select new { b.UserName }).ToString();
                         if (acc.Type == 0)
                         {
@@ -41,10 +44,12 @@ namespace Form_DangNhap
                         }
                         else
                         {
+                            SessionLogin.userID = textBox1.Text;
                             fmMain fmMain = new fmMain();
                             fmMain.Show();
                         }
                         this.Hide();
+                        
                     }
                     else
                     {

@@ -19,7 +19,6 @@ namespace quanlycoffe
             SessionLogin a = new SessionLogin();
             InitializeComponent();
             OpenChildForm(new fmBan());
-            Console.WriteLine(a["userId"]);
         }
         private Form currenFormChid;
 
@@ -53,7 +52,7 @@ namespace quanlycoffe
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new fmTTNV());
         }
     }
 }
