@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>quanlycoffe</RootNamespace>
     <AssemblyName>quanlycoffe</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -63,18 +64,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs">
-      <DependentUpon>Modelqlcoffe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bill.cs">
-      <DependentUpon>Modelqlcoffe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="BillInfo.cs">
-      <DependentUpon>Modelqlcoffe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">
-      <DependentUpon>Modelqlcoffe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\Function.cs" />
+    <Compile Include="DAO\SessionLogin.cs" />
     <Compile Include="fmBan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,12 +113,6 @@
     <Compile Include="fmDangNhap.designer.cs">
       <DependentUpon>fmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Food.cs">
-      <DependentUpon>Modelqlcoffe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FoodCategory.cs">
-      <DependentUpon>Modelqlcoffe.tt</DependentUpon>
-    </Compile>
     <Compile Include="fmQLBan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +131,24 @@
     <Compile Include="fmQLDanhMuc.designer.cs">
       <DependentUpon>fmQLDanhMuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmTTNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmTTNV.Designer.cs">
+      <DependentUpon>fmTTNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Food.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FoodCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frmQLDoAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLDoAn.designer.cs">
+      <DependentUpon>frmQLDoAn.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,28 +161,28 @@
     <Compile Include="frmThongKeDetail.designer.cs">
       <DependentUpon>frmThongKeDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelqlcoffe.Context.cs">
+    <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Modelqlcoffe.Context.tt</DependentUpon>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelqlcoffe.cs">
+    <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Modelqlcoffe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelqlcoffe.Designer.cs">
+    <Compile Include="Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Modelqlcoffe.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableFood.cs">
-      <DependentUpon>Modelqlcoffe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ThongKeBill.cs">
-      <DependentUpon>Modelqlcoffe.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="fmBan.resx">
       <DependentUpon>fmBan.cs</DependentUpon>
@@ -197,6 +211,12 @@
     <EmbeddedResource Include="fmQLDanhMuc.resx">
       <DependentUpon>fmQLDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fmTTNV.resx">
+      <DependentUpon>fmTTNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQLDoAn.resx">
+      <DependentUpon>frmQLDoAn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThongKe.resx">
       <DependentUpon>frmThongKe.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,13 +231,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="Modelqlcoffe.edmx">
+    <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Modelqlcoffe.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Modelqlcoffe.edmx.diagram">
-      <DependentUpon>Modelqlcoffe.edmx</DependentUpon>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -237,15 +258,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Modelqlcoffe.Context.tt">
+    <None Include="images.png" />
+    <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Modelqlcoffe.edmx</DependentUpon>
-      <LastGenOutput>Modelqlcoffe.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Modelqlcoffe.tt">
+    <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Modelqlcoffe.edmx</DependentUpon>
-      <LastGenOutput>Modelqlcoffe.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
