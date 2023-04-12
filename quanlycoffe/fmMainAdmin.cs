@@ -1,5 +1,7 @@
 ﻿using CoffeManager;
+using Form_DangNhap;
 using quanlycaffe;
+using QuanLyDoAn;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,6 +46,7 @@ namespace quanlycoffe
             qlnv.BackColor = Color.White;
             thongke.BackColor = Color.White;
             ban.BackColor = Color.White;
+            qldoan.BackColor = Color.White;
         }
         private void thongke_Click(object sender, EventArgs e)
         {
@@ -64,6 +67,20 @@ namespace quanlycoffe
             OpenChildForm(new fmQLBan());
             set();
             ban.BackColor = Color.CadetBlue;
+        }
+
+        private void quảnLýĐồĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmQLDoAn());
+            set();
+            qldoan.BackColor = Color.CadetBlue;
+        }
+
+        private void logOut_Click(object sender, EventArgs e)
+        {
+            fmDangNhap dn = new fmDangNhap();
+            dn.Show();
+            this.Hide();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using quanlycoffe;
+using quanlycoffe.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,12 +9,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.util;
 using System.Windows.Forms;
 
 namespace Form_DangNhap
 {
     public partial class fmDangNhap : Form
     {
+        SessionLogin a = new SessionLogin();
 
         public fmDangNhap()
         {
@@ -30,7 +33,8 @@ namespace Form_DangNhap
                     Account acc = qlcf.Accounts.FirstOrDefault(x => x.UserName == textBox1.Text && x.PassWord == textBox2.Text);
                     if (acc != null)
                     {
-                        if(acc.Type == 0)
+                        string userid = (from b in qlcf.Accounts select new { b.UserName }).ToString();
+                        if (acc.Type == 0)
                         {
                             fmMainAdmin fmMainAdmin = new fmMainAdmin();
                             fmMainAdmin.Show();
@@ -46,17 +50,23 @@ namespace Form_DangNhap
                     {
                         MessageBox.Show("Sai tài khoản hoăc mật khẩu vui lòng đăng nhập lại");
                     }
+                    
+
                 }
                 else
                 {
                     MessageBox.Show("Trống thông tin");
                 }
             }
+            
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        private void OnClosing(object sender, CancelEventArgs e)
+        {
+            
         }
     }
 }

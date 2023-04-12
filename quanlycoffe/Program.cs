@@ -1,4 +1,5 @@
 ﻿using Form_DangNhap;
+using QuanLyDoAn;
 using System;
 using System.Windows.Forms;
 using WindowsFormsApp1;
@@ -15,6 +16,7 @@ namespace quanlycoffe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new fmDangNhap());
         }
     }
