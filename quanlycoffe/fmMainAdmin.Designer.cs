@@ -31,9 +31,9 @@ namespace quanlycoffe
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.thongke = new System.Windows.Forms.ToolStripMenuItem();
-            this.trangChủToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.qlnv = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ban = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,12 +41,12 @@ namespace quanlycoffe
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trangChủToolStripMenuItem,
-            this.thongke,
-            this.quảnLýNhânViênToolStripMenuItem});
+            this.qlnv,
+            this.ban,
+            this.thongke});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(802, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(882, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -57,30 +57,34 @@ namespace quanlycoffe
             this.thongke.Text = "Thống kê";
             this.thongke.Click += new System.EventHandler(this.thongke_Click);
             // 
-            // trangChủToolStripMenuItem
+            // qlnv
             // 
-            this.trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
-            this.trangChủToolStripMenuItem.Size = new System.Drawing.Size(87, 26);
-            this.trangChủToolStripMenuItem.Text = "Trang chủ";
-            // 
-            // quảnLýNhânViênToolStripMenuItem
-            // 
-            this.quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
-            this.quảnLýNhânViênToolStripMenuItem.Size = new System.Drawing.Size(140, 26);
-            this.quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
+            this.qlnv.BackColor = System.Drawing.SystemColors.Control;
+            this.qlnv.Name = "qlnv";
+            this.qlnv.Size = new System.Drawing.Size(140, 24);
+            this.qlnv.Text = "Quản lý nhân viên";
+            this.qlnv.Click += new System.EventHandler(this.quảnLýNhânViênToolStripMenuItem_Click);
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 41);
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 610);
+            this.panel1.Size = new System.Drawing.Size(882, 602);
             this.panel1.TabIndex = 1;
+            // 
+            // ban
+            // 
+            this.ban.Name = "ban";
+            this.ban.Size = new System.Drawing.Size(104, 24);
+            this.ban.Text = "Quản Lý Bàn";
+            this.ban.Click += new System.EventHandler(this.quảnLýBànToolStripMenuItem_Click);
             // 
             // fmMainAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 653);
+            this.ClientSize = new System.Drawing.Size(882, 633);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -96,9 +100,9 @@ namespace quanlycoffe
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem trangChủToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thongke;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýNhânViênToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem qlnv;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem ban;
     }
 }

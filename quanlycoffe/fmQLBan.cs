@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace quanlycaffe
 {
-    public partial class Form1 : Form
+    public partial class fmQLBan : Form
     {
-        public Form1()
+        public fmQLBan()
         {
             InitializeComponent();
             loadTable();
@@ -83,6 +83,11 @@ namespace quanlycaffe
                 db.SaveChanges();
                 loadTable();
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

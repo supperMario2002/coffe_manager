@@ -1,4 +1,5 @@
 ﻿using CoffeManager;
+using quanlycaffe;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,8 @@ namespace quanlycoffe
         public fmMainAdmin()
         {
             InitializeComponent();
+            OpenChildForm(new fmQLTK());
+            set();
         }
         private Form currenFormChid;
 
@@ -36,9 +39,31 @@ namespace quanlycoffe
 
         }
 
+        void set()
+        {
+            qlnv.BackColor = Color.White;
+            thongke.BackColor = Color.White;
+            ban.BackColor = Color.White;
+        }
         private void thongke_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmThongKe());
+            set();
+            thongke.BackColor = Color.CadetBlue;
+        }
+
+        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fmQLTK());
+            set();
+            qlnv.BackColor = Color.CadetBlue;
+        }
+
+        private void quảnLýBànToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fmQLBan());
+            set();
+            ban.BackColor = Color.CadetBlue;
         }
     }
 }
