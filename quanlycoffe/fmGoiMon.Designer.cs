@@ -30,6 +30,7 @@ namespace quanlycoffe
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmGoiMon));
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +58,8 @@ namespace quanlycoffe
             this.label3 = new System.Windows.Forms.Label();
             this.cbDoAn = new System.Windows.Forms.ComboBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pdhoadon = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.billInfoBindingSource)).BeginInit();
             this.gbBan.SuspendLayout();
@@ -235,6 +238,7 @@ namespace quanlycoffe
             this.button1.TabIndex = 48;
             this.button1.Text = "In hóa đơn";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label5
             // 
@@ -378,6 +382,19 @@ namespace quanlycoffe
             this.cbDoAn.Size = new System.Drawing.Size(229, 28);
             this.cbDoAn.TabIndex = 31;
             // 
+            // pdhoadon
+            // 
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // fmGoiMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -425,6 +442,8 @@ namespace quanlycoffe
         private System.Windows.Forms.Button btnChuyenBan;
         private System.Windows.Forms.ComboBox cbChuyenBan;
         private System.Windows.Forms.Label label1;
+        private System.Drawing.Printing.PrintDocument pdhoadon;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
 
