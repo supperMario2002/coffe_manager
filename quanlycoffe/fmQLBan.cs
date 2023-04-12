@@ -54,7 +54,7 @@ namespace quanlycaffe
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtMaban);
+            int id = Convert.ToInt32(txtMaban.Text);
             using (var db = new QuanLyQuanCafeEntities())
             {
                 var findId = db.TableFoods.Find(id);
