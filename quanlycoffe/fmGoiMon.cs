@@ -1,10 +1,14 @@
-﻿using quanlycoffe.DAO;
+﻿using iText.Kernel.Colors;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Borders;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using quanlycoffe.DAO;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+
 
 namespace quanlycoffe
 {
@@ -30,7 +34,7 @@ namespace quanlycoffe
         {
             InitializeComponent();
             loadMenu();
-            
+
         }
         void checkBill()
         {
@@ -76,7 +80,7 @@ namespace quanlycoffe
 
         void showBill(int id)
         {
-            
+
             int total = 0;
             using (var tf = new QuanLyQuanCafeEntities())
             {
@@ -100,7 +104,7 @@ namespace quanlycoffe
                                         b.price,
                                         a.count
                                     }).ToList();
-                    
+
                     foreach (var a in listBill)
                     {
                         total += Convert.ToInt32(a.price) * Convert.ToInt32(a.count);
@@ -307,6 +311,126 @@ namespace quanlycoffe
                 {
                     TruyenCha(CurrenTableId);
                 }
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            using(var tf = new QuanLyQuanCafeEntities())
+            {
+                var Bill = tf.Bills.Where(a => a.idTable == CurrenTableId && a.status == 0).FirstOrDefault();
+
+                var customer = tf.Customers.Where(a => a.id == Bill.idCustomer).FirstOrDefault();
+
+
+            PdfWriter writer = new PdfWriter("D:\\BIll"+Bill.id+".pdf");
+            PdfDocument pdf = new PdfDocument(writer);
+            Document document = new Document(pdf);
+
+            Paragraph header = new Paragraph("CA PHE VIET \n DC:So 41A Phu Dien, Q. Bac Tu Liem, TP. Ha Noi \n SDT: 099999999")
+               .SetTextAlignment(TextAlignment.CENTER)
+               .SetBold()
+               .SetFontSize(14);
+            document.Add(header);
+
+            Paragraph sub1 = new Paragraph("--------------------------")
+               .SetTextAlignment(TextAlignment.CENTER)
+               .SetFontSize(14);
+            document.Add(sub1);
+
+            Paragraph sub2 = new Paragraph("HOA DON THANH TOAN \n Ma: " + Bill.id + " \n Gio vao: " + Bill.DateCheckIn + " \n Gio ra: " + Bill.DateCheckOut)
+               .SetTextAlignment(TextAlignment.CENTER)
+               .SetBold()
+               .SetFontSize(14);
+            document.Add(sub2);
+
+            Paragraph sub3 = new Paragraph("Ten Khach Hang: " + customer.name + " \n SDT: " + customer.phone + " \n Thu ngan: Luong Van Hoa" )
+               .SetTextAlignment(TextAlignment.LEFT)
+               .SetFontSize(14);
+            document.Add(sub3);
+
+            Table table = new Table(4, true);
+            var column1 = new Cell().SetBorderLeft(Border.NO_BORDER).SetBorderRight(Border.NO_BORDER).SetBackgroundColor(ColorConstants.GRAY).Add(new Paragraph("Ten Hang"));
+            var column2 = new Cell().SetBorderLeft(Border.NO_BORDER).SetBorderRight(Border.NO_BORDER).SetBackgroundColor(ColorConstants.GRAY).Add(new Paragraph("So Luong"));
+            var column3 = new Cell().SetBorderLeft(Border.NO_BORDER).SetBorderRight(Border.NO_BORDER).SetBackgroundColor(ColorConstants.GRAY).Add(new Paragraph("Don Gia"));
+            var column4 = new Cell().SetBorderLeft(Border.NO_BORDER).SetBorderRight(Border.NO_BORDER).SetBackgroundColor(ColorConstants.GRAY).Add(new Paragraph("Thanh Tien"));
+            table.AddCell(column1);
+            table.AddCell(column2);
+            table.AddCell(column3);
+            table.AddCell(column4);
+                var listBill = (from a in tf.BillInfoes
+                                join b in tf.Foods
+                                on a.idFood equals b.id
+                                where a.idBill == tf.Bills.Where(a => a.idTable == CurrenTableId && a.status == 0).FirstOrDefault().id
+                                select new
+                                {
+                                    a.id,
+                                    b.name,
+                                    b.price,
+                                    a.count
+                                }).ToList();
+                int tong = 0;
+                foreach (var a in listBill)
+                {
+                    tong = tong + Convert.ToInt32(a.price * a.count);
+                    var name = new Paragraph(a.name);
+                    var count = new Paragraph(a.count.ToString());
+                    var price = new Paragraph(a.price.ToString());
+                    var tt = new Paragraph((a.price * a.count).ToString());
+                    var column11 = new Cell().SetBorderLeft(Border.NO_BORDER).SetBorderRight(Border.NO_BORDER).Add(name);
+                    var column22 = new Cell().SetBorderLeft(Border.NO_BORDER).SetBorderRight(Border.NO_BORDER).Add(count);
+                    var column33 = new Cell().SetBorderLeft(Border.NO_BORDER).SetBorderRight(Border.NO_BORDER).Add(price);
+                    var column44 = new Cell().SetBorderLeft(Border.NO_BORDER).SetBorderRight(Border.NO_BORDER).Add(tt);
+                    table.AddCell(column11);
+                    table.AddCell(column22);
+                    table.AddCell(column33);
+                    table.AddCell(column44);
+                }
+               string texttong = Function.FormatCurrency("VND", tong);
+            document.Add(table);
+            float col = 300f;
+            float[] colw = { col, col };
+            Table table1 = new Table(colw);
+            Cell cell11 = new Cell(1, 1)
+                    .SetBold()
+                    .SetBorder(Border.NO_BORDER)
+                  .SetTextAlignment(TextAlignment.LEFT)
+                  .Add(new Paragraph("Tong tien:"));
+            Cell cell12 = new Cell(1, 1)
+               .SetBold()
+               .SetTextAlignment(TextAlignment.RIGHT)
+               .SetBorder(Border.NO_BORDER)
+               .Add(new Paragraph(texttong));
+
+            Cell cell21 = new Cell(1, 1)
+               .SetBold()
+               .SetBorder(Border.NO_BORDER)
+               .SetTextAlignment(TextAlignment.LEFT)
+               .Add(new Paragraph("VAT(100%)"));
+            Cell cell22 = new Cell(1, 1)
+               .SetBold()
+               .SetTextAlignment(TextAlignment.RIGHT)
+               .SetBorder(Border.NO_BORDER)
+               .Add(new Paragraph(texttong));
+            table1.AddCell(cell11);
+            table1.AddCell(cell12);
+            table1.AddCell(cell21);
+            table1.AddCell(cell22);
+            document.Add(table1);
+
+            Paragraph sub5 = new Paragraph("------------------------------------------------------")
+               .SetTextAlignment(TextAlignment.CENTER)
+               .SetBold()
+               .SetFontSize(14);
+            document.Add(sub5);
+
+            Paragraph sub4 = new Paragraph("Xin cam on! Hen gap lai quy khach!")
+               .SetTextAlignment(TextAlignment.CENTER)
+               .SetBold()
+               .SetFontSize(14);
+            document.Add(sub4);
+                MessageBox.Show("Đã xuất hóa đơn thành công!");
+                document.Close();
             }
         }
     }
