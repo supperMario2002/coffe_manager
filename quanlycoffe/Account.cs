@@ -21,5 +21,6 @@ namespace quanlycoffe
         public string genner { get; set; }
         public string phone { get; set; }
         public string address { get; set; }
+        public byte[] avatar { get; set; }
     }
 }

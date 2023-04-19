@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -55,7 +57,7 @@ namespace quanlycoffe
 
                 foreach (var i in data)
                 {
-                    dataGridView1.Rows.Add(i.UserName, i.DisplayName, i.PassWord, i.genner, i.phone, i.address);
+                    dataGridView1.Rows.Add(i.UserName, i.DisplayName, i.PassWord, i.genner, i.phone, i.address,i.avatar);
                 }
             }
         }
@@ -82,6 +84,7 @@ namespace quanlycoffe
                             genner = txtGioitinh.Text,
                             phone = txtPhone.Text,
                             address = txtDiaChi.Text,
+                            avatar = getImage(),
                         };
                         db.Accounts.Add(create);
                         db.SaveChanges();
@@ -102,6 +105,9 @@ namespace quanlycoffe
             string genner = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             string phone = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             string address = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            byte[] img = (byte[])dataGridView1.Rows[e.RowIndex].Cells[6].Value;
+            MemoryStream stream = new MemoryStream(img);
+            pictureBox1.Image = Image.FromStream(stream);
             txtTenNguoiDung.Enabled = false;
             txtTenNguoiDung.Text = Username;
             txtHoTen.Text = DisplayName;
@@ -156,6 +162,36 @@ namespace quanlycoffe
         private void button1_Click(object sender, EventArgs e)
         {
             reset();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            string imageLocation = "";
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files|*.png| All files(*.*)|*.*";
+                if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    imageLocation = dialog.FileName;
+
+                    pictureBox1.ImageLocation = imageLocation;
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private byte[] getImage()
+        {
+            MemoryStream stream = new MemoryStream();
+            pictureBox1.Image.Save(stream, pictureBox1.Image.RawFormat);
+
+            return stream.GetBuffer();
         }
     }
 }

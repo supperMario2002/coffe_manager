@@ -17,7 +17,7 @@ namespace quanlycoffe
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new fmDangNhap());
+            Application.Run(new fmQLTK());
         }
     }
 }

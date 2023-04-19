@@ -4,16 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7787412d8c03413c9583e53eddfa9dea" Name="Diagram1">
+      <Diagram DiagramId="13807f76e10e409dae19522bc052e055" Name="Diagram1">
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.Account" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.Bill" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.BillInfo" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.Customer" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.Food" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.FoodCategory" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyQuanCafeModel.sysdiagram" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.TableFood" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyQuanCafeModel.ThongKeBill" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyQuanCafeModel.ThongKeBill" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="QuanLyQuanCafeModel.FK__Bill__idTable__38996AB5" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyQuanCafeModel.FK__BillInfo__idBill__398D8EEE" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyQuanCafeModel.FK_Bill_Cusstomer" ManuallyRouted="false" />
