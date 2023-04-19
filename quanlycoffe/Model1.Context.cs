@@ -31,6 +31,7 @@ namespace quanlycoffe
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<FoodCategory> FoodCategories { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TableFood> TableFoods { get; set; }
         public virtual DbSet<ThongKeBill> ThongKeBills { get; set; }
     }

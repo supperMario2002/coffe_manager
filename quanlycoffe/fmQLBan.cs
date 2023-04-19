@@ -33,6 +33,11 @@ namespace quanlycaffe
             }
         }
 
+        void reset()
+        {
+            txtMaban.Text = "";
+            txtTenban.Text = "";
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             using (var db = new QuanLyQuanCafeEntities())
@@ -45,6 +50,7 @@ namespace quanlycaffe
                 db.TableFoods.Add(create);
                 db.SaveChanges();
                 loadTable();
+                reset();
             }
         }
         private void txtTenban_TextChanged(object sender, EventArgs e)
@@ -61,6 +67,7 @@ namespace quanlycaffe
                 findId.name = txtTenban.Text;
                 db.SaveChanges();
                 loadTable();
+                reset();
             }
         }
 
@@ -82,12 +89,18 @@ namespace quanlycaffe
                 var delete = db.TableFoods.Remove(db.TableFoods.Where(x => x.id == id).SingleOrDefault());
                 db.SaveChanges();
                 loadTable();
+                reset();
             }
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            reset();
         }
     }
 }

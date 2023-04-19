@@ -44,6 +44,12 @@ namespace QuanLyDoAn
             }
         }
 
+        void reset()
+        {
+            txtTen.Text = "";
+            txtMadoan.Text = "";
+            txtGia.Text = "";
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             loadTable();
@@ -62,6 +68,7 @@ namespace QuanLyDoAn
                 db.Foods.Add(create);
                 db.SaveChanges();
                 loadTable();
+                reset();
             }
         }
 
@@ -75,6 +82,7 @@ namespace QuanLyDoAn
                 findId.price = Convert.ToDouble(txtGia.Text);
                 db.SaveChanges();
                 loadTable();
+                reset();
             }
         }
 
@@ -86,6 +94,8 @@ namespace QuanLyDoAn
                 var delete = db.Foods.Remove(db.Foods.Where(x=>x.id == id).SingleOrDefault());
                 db.SaveChanges();
                 loadTable();
+                reset();
+
             }
         }
 
@@ -95,6 +105,11 @@ namespace QuanLyDoAn
             txtTen.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtGia.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             cbDanhMuc.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            reset();
         }
     }
    

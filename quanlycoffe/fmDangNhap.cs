@@ -32,7 +32,7 @@ namespace Form_DangNhap
                 if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text))
                 {
                     SessionLogin.userID = null;
-                    Account acc = qlcf.Accounts.FirstOrDefault(x => x.UserName == textBox1.Text && x.PassWord == textBox2.Text);
+                    var acc = qlcf.Accounts.FirstOrDefault(x => x.UserName == textBox1.Text && x.PassWord == textBox2.Text);
                     if (acc != null)
                     {
 

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1;
 
 namespace quanlycoffe
 {
@@ -21,6 +22,7 @@ namespace quanlycoffe
             InitializeComponent();
             OpenChildForm(new fmQLTK());
             set();
+            qlnv.BackColor = Color.CadetBlue;
         }
         private Form currenFormChid;
 
@@ -47,6 +49,7 @@ namespace quanlycoffe
             thongke.BackColor = Color.White;
             ban.BackColor = Color.White;
             qldoan.BackColor = Color.White;
+            qldanhmuc.BackColor = Color.White;
         }
         private void thongke_Click(object sender, EventArgs e)
         {
@@ -81,6 +84,13 @@ namespace quanlycoffe
             fmDangNhap dn = new fmDangNhap();
             dn.Show();
             this.Hide();
+        }
+
+        private void qldanhmuc_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fmQLDanhMuc());
+            set();
+            qldanhmuc.BackColor = Color.CadetBlue;
         }
     }
 }

@@ -23,7 +23,11 @@ namespace WindowsFormsApp1
 
        
        
-
+        void reset()
+        {
+            txtID.Text = "";
+            txtName.Text = "";
+        }
         void loaddata()
         {
             dtgv.Rows.Clear();
@@ -43,8 +47,9 @@ namespace WindowsFormsApp1
                 FoodCategory fd = new FoodCategory()
                 { name = txtName.Text};
                 db.FoodCategories.Add(fd);
-                    db.SaveChanges();
-            
+                 db.SaveChanges();
+
+
         }
         void edit()
         {
@@ -62,12 +67,14 @@ namespace WindowsFormsApp1
         {
             add();
             loaddata();
+            reset();
         }
 
         private void btnEDIT_Click(object sender, EventArgs e)
         {
            edit();
             loaddata();
+            reset();
         }
 
         private void btnDELETE_Click(object sender, EventArgs e)
@@ -76,6 +83,7 @@ namespace WindowsFormsApp1
             db.FoodCategories.Remove(db.FoodCategories.Where(p => p.id == idCategory).SingleOrDefault());
             db.SaveChanges();
             loaddata();
+            reset();
         }
 
         private void btnclose_Click(object sender, EventArgs e)
@@ -88,5 +96,9 @@ namespace WindowsFormsApp1
             txtName.Text = dtgv.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
     }
 }

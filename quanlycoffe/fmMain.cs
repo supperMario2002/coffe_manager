@@ -19,6 +19,8 @@ namespace quanlycoffe
             SessionLogin a = new SessionLogin();
             InitializeComponent();
             OpenChildForm(new fmBan());
+            reset();
+            datban.BackColor = Color.CadetBlue;
         }
         private Form currenFormChid;
 
@@ -38,9 +40,17 @@ namespace quanlycoffe
             childForm.Show();
 
         }
+
+        void reset()
+        {
+            datban.BackColor = Color.White;
+            ttcn.BackColor = Color.White;
+        }
         private void datban_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fmBan());
+            reset();
+            datban.BackColor = Color.CadetBlue;
         }
 
         private void logOut_Click(object sender, EventArgs e)
@@ -53,6 +63,8 @@ namespace quanlycoffe
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fmTTNV());
+            reset();
+            ttcn.BackColor = Color.CadetBlue;
         }
     }
 }
