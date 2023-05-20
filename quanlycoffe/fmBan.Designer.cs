@@ -38,6 +38,9 @@ namespace quanlycoffe
             // 
             // flptable
             // 
+            this.flptable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flptable.BackColor = System.Drawing.SystemColors.Control;
             this.flptable.Location = new System.Drawing.Point(6, 21);
             this.flptable.Name = "flptable";
@@ -47,6 +50,9 @@ namespace quanlycoffe
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Location = new System.Drawing.Point(472, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(470, 560);
@@ -54,6 +60,9 @@ namespace quanlycoffe
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.flptable);
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
@@ -65,6 +74,7 @@ namespace quanlycoffe
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.button1.Location = new System.Drawing.Point(260, 509);
             this.button1.Name = "button1";
