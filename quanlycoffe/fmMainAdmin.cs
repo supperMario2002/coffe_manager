@@ -98,5 +98,10 @@ namespace quanlycoffe
         {
             OpenChildForm(new frmThongKe());
         }
+
+        private void qlkhachhang_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmQLKhachhang());
+        }
     }
 }
