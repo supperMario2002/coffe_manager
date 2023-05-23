@@ -211,11 +211,6 @@ namespace quanlycoffe
             this.nbrGiamGia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nbrGiamGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.nbrGiamGia.Location = new System.Drawing.Point(112, 465);
-            this.nbrGiamGia.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.nbrGiamGia.Name = "nbrGiamGia";
             this.nbrGiamGia.Size = new System.Drawing.Size(109, 27);
             this.nbrGiamGia.TabIndex = 47;

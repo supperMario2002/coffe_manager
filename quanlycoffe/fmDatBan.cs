@@ -62,19 +62,36 @@ namespace quanlycoffe
             {
                 using (var tf = new QuanLyQuanCafeEntities())
                 {
-                    var createCustomer = new Customer { 
-                        name = txtName.Text,
-                        phone = txtPhone.Text
-                    };
-                    tf.Customers.Add(createCustomer);
-                    var createBill = new Bill
+                    var checkCustomer = tf.Customers.Where(x => x.name == name && x.phone == phone).FirstOrDefault();
+                    int idCustomer = 0;
+                    if(checkCustomer == null)
                     {
-                        idTable = CurrenTableId,
-                        DateCheckIn = DateTime.Now,
-                        status = 0,
-                        idCustomer = createCustomer.id
-                    };
-                    tf.Bills.Add(createBill);
+                        var createCustomer = new Customer { 
+                            name = txtName.Text,
+                            phone = txtPhone.Text
+                        };
+                        tf.Customers.Add(createCustomer);
+                        var createBill = new Bill
+                        {
+                            idTable = CurrenTableId,
+                            DateCheckIn = DateTime.Now,
+                            status = 0,
+                            idCustomer = createCustomer.id
+                        };
+                        tf.Bills.Add(createBill);
+                    }
+                    else
+                    {
+                        idCustomer = checkCustomer.id;
+                        var createBill = new Bill
+                        {
+                            idTable = CurrenTableId,
+                            DateCheckIn = DateTime.Now,
+                            status = 0,
+                            idCustomer = idCustomer
+                        };
+                        tf.Bills.Add(createBill);
+                    }
 
                     Function.updateStatusTable("Có người", CurrenTableId);
                     tf.SaveChanges();
