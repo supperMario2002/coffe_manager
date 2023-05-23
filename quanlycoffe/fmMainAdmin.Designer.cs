@@ -39,6 +39,7 @@ namespace quanlycoffe
             this.qldoan = new System.Windows.Forms.ToolStripMenuItem();
             this.logOut = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@ namespace quanlycoffe
             this.ban,
             this.thongke,
             this.qldanhmuc,
+            this.toolStripMenuItem1,
             this.qldoan,
             this.logOut});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -86,14 +88,14 @@ namespace quanlycoffe
             // tkMonAn
             // 
             this.tkMonAn.Name = "tkMonAn";
-            this.tkMonAn.Size = new System.Drawing.Size(180, 22);
+            this.tkMonAn.Size = new System.Drawing.Size(171, 22);
             this.tkMonAn.Text = "Thống kê món Ăn";
             this.tkMonAn.Click += new System.EventHandler(this.tkMonAn_Click);
             // 
             // Tkhoadon
             // 
             this.Tkhoadon.Name = "Tkhoadon";
-            this.Tkhoadon.Size = new System.Drawing.Size(180, 22);
+            this.Tkhoadon.Size = new System.Drawing.Size(171, 22);
             this.Tkhoadon.Text = "Thống Kê hóa đơn";
             this.Tkhoadon.Click += new System.EventHandler(this.Tkhoadon_Click);
             // 
@@ -107,8 +109,8 @@ namespace quanlycoffe
             // qldoan
             // 
             this.qldoan.Name = "qldoan";
-            this.qldoan.Size = new System.Drawing.Size(93, 20);
-            this.qldoan.Text = "Quản lý đồ ăn";
+            this.qldoan.Size = new System.Drawing.Size(125, 20);
+            this.qldoan.Text = "Quản lý khách hàng";
             this.qldoan.Click += new System.EventHandler(this.quảnLýĐồĂnToolStripMenuItem_Click);
             // 
             // logOut
@@ -132,6 +134,12 @@ namespace quanlycoffe
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(662, 489);
             this.panel1.TabIndex = 1;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(93, 20);
+            this.toolStripMenuItem1.Text = "Quản lý đồ ăn";
             // 
             // fmMainAdmin
             // 
@@ -163,5 +171,6 @@ namespace quanlycoffe
         private System.Windows.Forms.ToolStripMenuItem qldanhmuc;
         private System.Windows.Forms.ToolStripMenuItem tkMonAn;
         private System.Windows.Forms.ToolStripMenuItem Tkhoadon;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
