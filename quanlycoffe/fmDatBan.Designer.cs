@@ -37,6 +37,10 @@ namespace quanlycoffe
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lbTenBan = new System.Windows.Forms.Label();
+            this.dgvKhachHang = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -84,6 +88,7 @@ namespace quanlycoffe
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(247, 27);
             this.txtName.TabIndex = 3;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtPhone
             // 
@@ -99,7 +104,7 @@ namespace quanlycoffe
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button1.Location = new System.Drawing.Point(146, 249);
+            this.button1.Location = new System.Drawing.Point(144, 238);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 38);
             this.button1.TabIndex = 5;
@@ -131,11 +136,43 @@ namespace quanlycoffe
             this.lbTenBan.TabIndex = 7;
             this.lbTenBan.Text = " ";
             // 
+            // dgvKhachHang
+            // 
+            this.dgvKhachHang.AllowUserToAddRows = false;
+            this.dgvKhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dgvKhachHang.Location = new System.Drawing.Point(12, 293);
+            this.dgvKhachHang.Name = "dgvKhachHang";
+            this.dgvKhachHang.RowHeadersWidth = 51;
+            this.dgvKhachHang.RowTemplate.Height = 24;
+            this.dgvKhachHang.Size = new System.Drawing.Size(428, 208);
+            this.dgvKhachHang.TabIndex = 8;
+            this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Tên khách hàng";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Số điện thoại";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
             // fmDatBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 513);
+            this.Controls.Add(this.dgvKhachHang);
             this.Controls.Add(this.lbTenBan);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -146,6 +183,8 @@ namespace quanlycoffe
             this.Controls.Add(this.label1);
             this.Name = "fmDatBan";
             this.Text = "fmDatBan";
+            this.Load += new System.EventHandler(this.fmDatBan_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +200,8 @@ namespace quanlycoffe
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbTenBan;
+        private System.Windows.Forms.DataGridView dgvKhachHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

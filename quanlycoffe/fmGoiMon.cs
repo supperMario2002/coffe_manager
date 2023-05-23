@@ -283,6 +283,9 @@ namespace quanlycoffe
                         updateStatus.status = 1;
                         updateStatus.DateCheckOut = DateTime.Now;
                         checkBill();
+
+                        var addpoint = tf.Customers.Find(idBill.idCustomer);
+                        addpoint.point = addpoint.point + 1;
                         tf.SaveChanges();
                         Function.updateStatusTable("Trống", CurrenTableId);
                         if (TruyenCha != null)

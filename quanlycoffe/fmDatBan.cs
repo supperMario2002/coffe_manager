@@ -21,6 +21,22 @@ namespace quanlycoffe
         public fmDatBan()
         {
             InitializeComponent();
+            loadTable();
+        }
+
+        void loadTable()
+        {
+            using (var db = new QuanLyQuanCafeEntities())
+            {
+                dgvKhachHang.Rows.Clear();
+                var data = db.Customers.ToList();
+
+                foreach (var i in data)
+                {
+                    dgvKhachHang.Rows.Add(i.name, i.phone);
+                }
+
+            }
         }
 
         public fmDatBan(int idTable) : this()
@@ -69,6 +85,37 @@ namespace quanlycoffe
                     }
                 }
             }
+        }
+
+
+        private void fmDatBan_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            string keysearch = txtName.Text;
+            using (var db = new QuanLyQuanCafeEntities())
+            {
+                dgvKhachHang.Rows.Clear();
+                var data = db.Customers.Where(x =>  x.name.Contains(keysearch)).ToList();
+
+                foreach (var i in data)
+                {
+                    dgvKhachHang.Rows.Add(i.name, i.phone);
+                }
+
+            }
+        }
+
+        private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string name = dgvKhachHang.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string phone = dgvKhachHang.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+            txtName.Text = name;
+            txtPhone.Text = phone;
         }
     }
 }

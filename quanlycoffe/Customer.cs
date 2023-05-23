@@ -23,6 +23,7 @@ namespace quanlycoffe
         public int id { get; set; }
         public string name { get; set; }
         public string phone { get; set; }
+        public Nullable<int> point { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bill> Bills { get; set; }

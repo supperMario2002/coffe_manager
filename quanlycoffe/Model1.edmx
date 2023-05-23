@@ -45,6 +45,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="point" Type="int" />
         </EntityType>
         <EntityType Name="Food">
           <Key>
@@ -80,7 +81,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
           <Property Name="DateCheckOut" Type="date" />
           <Property Name="tong" Type="float" />
         </EntityType>
-        <Association Name="FK__Bill__idTable__4E88ABD4">
+        <Association Name="FK__Bill__idTable__38996AB5">
           <End Role="TableFood" Type="Self.TableFood" Multiplicity="1" />
           <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -92,7 +93,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillInfo__idBill__5070F446">
+        <Association Name="FK__BillInfo__idBill__398D8EEE">
           <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
           <End Role="BillInfo" Type="Self.BillInfo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -104,7 +105,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillInfo__idFood__5165187F">
+        <Association Name="FK__BillInfo__idFood__3A81B327">
           <End Role="Food" Type="Self.Food" Multiplicity="1" />
           <End Role="BillInfo" Type="Self.BillInfo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -116,7 +117,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Food__idCategory__52593CB8">
+        <Association Name="FK__Food__idCategory__3B75D760">
           <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="1" />
           <End Role="Food" Type="Self.Food" Multiplicity="*" />
           <ReferentialConstraint>
@@ -155,19 +156,19 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
     [ThongKeBills].[tong] AS [tong]
     FROM [dbo].[ThongKeBills] AS [ThongKeBills]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Bill__idTable__4E88ABD4" Association="Self.FK__Bill__idTable__4E88ABD4">
+          <AssociationSet Name="FK__Bill__idTable__38996AB5" Association="Self.FK__Bill__idTable__38996AB5">
             <End Role="TableFood" EntitySet="TableFood" />
             <End Role="Bill" EntitySet="Bill" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillInfo__idBill__5070F446" Association="Self.FK__BillInfo__idBill__5070F446">
+          <AssociationSet Name="FK__BillInfo__idBill__398D8EEE" Association="Self.FK__BillInfo__idBill__398D8EEE">
             <End Role="Bill" EntitySet="Bill" />
             <End Role="BillInfo" EntitySet="BillInfo" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillInfo__idFood__5165187F" Association="Self.FK__BillInfo__idFood__5165187F">
+          <AssociationSet Name="FK__BillInfo__idFood__3A81B327" Association="Self.FK__BillInfo__idFood__3A81B327">
             <End Role="Food" EntitySet="Food" />
             <End Role="BillInfo" EntitySet="BillInfo" />
           </AssociationSet>
-          <AssociationSet Name="FK__Food__idCategory__52593CB8" Association="Self.FK__Food__idCategory__52593CB8">
+          <AssociationSet Name="FK__Food__idCategory__3B75D760" Association="Self.FK__Food__idCategory__3B75D760">
             <End Role="FoodCategory" EntitySet="FoodCategory" />
             <End Role="Food" EntitySet="Food" />
           </AssociationSet>
@@ -204,8 +205,8 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
           <Property Name="idTable" Type="Int32" Nullable="false" />
           <Property Name="status" Type="Int32" Nullable="false" />
           <Property Name="idCustomer" Type="Int32" />
-          <NavigationProperty Name="TableFood" Relationship="Self.FK__Bill__idTable__4E88ABD4" FromRole="Bill" ToRole="TableFood" />
-          <NavigationProperty Name="BillInfoes" Relationship="Self.FK__BillInfo__idBill__5070F446" FromRole="Bill" ToRole="BillInfo" />
+          <NavigationProperty Name="TableFood" Relationship="Self.FK__Bill__idTable__38996AB5" FromRole="Bill" ToRole="TableFood" />
+          <NavigationProperty Name="BillInfoes" Relationship="Self.FK__BillInfo__idBill__398D8EEE" FromRole="Bill" ToRole="BillInfo" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_Bill_Cusstomer" FromRole="Bill" ToRole="Customers" />
         </EntityType>
         <EntityType Name="BillInfo">
@@ -216,8 +217,8 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
           <Property Name="idBill" Type="Int32" Nullable="false" />
           <Property Name="idFood" Type="Int32" Nullable="false" />
           <Property Name="count" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Bill" Relationship="Self.FK__BillInfo__idBill__5070F446" FromRole="BillInfo" ToRole="Bill" />
-          <NavigationProperty Name="Food" Relationship="Self.FK__BillInfo__idFood__5165187F" FromRole="BillInfo" ToRole="Food" />
+          <NavigationProperty Name="Bill" Relationship="Self.FK__BillInfo__idBill__398D8EEE" FromRole="BillInfo" ToRole="Bill" />
+          <NavigationProperty Name="Food" Relationship="Self.FK__BillInfo__idFood__3A81B327" FromRole="BillInfo" ToRole="Food" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -226,6 +227,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="point" Type="Int32" />
           <NavigationProperty Name="Bills" Relationship="Self.FK_Bill_Cusstomer" FromRole="Customers" ToRole="Bill" />
         </EntityType>
         <EntityType Name="Food">
@@ -236,8 +238,8 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idCategory" Type="Int32" Nullable="false" />
           <Property Name="price" Type="Double" Nullable="false" />
-          <NavigationProperty Name="BillInfoes" Relationship="Self.FK__BillInfo__idFood__5165187F" FromRole="Food" ToRole="BillInfo" />
-          <NavigationProperty Name="FoodCategory" Relationship="Self.FK__Food__idCategory__52593CB8" FromRole="Food" ToRole="FoodCategory" />
+          <NavigationProperty Name="BillInfoes" Relationship="Self.FK__BillInfo__idFood__3A81B327" FromRole="Food" ToRole="BillInfo" />
+          <NavigationProperty Name="FoodCategory" Relationship="Self.FK__Food__idCategory__3B75D760" FromRole="Food" ToRole="FoodCategory" />
         </EntityType>
         <EntityType Name="FoodCategory">
           <Key>
@@ -245,7 +247,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Foods" Relationship="Self.FK__Food__idCategory__52593CB8" FromRole="FoodCategory" ToRole="Food" />
+          <NavigationProperty Name="Foods" Relationship="Self.FK__Food__idCategory__3B75D760" FromRole="FoodCategory" ToRole="Food" />
         </EntityType>
         <EntityType Name="TableFood">
           <Key>
@@ -254,7 +256,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__idTable__4E88ABD4" FromRole="TableFood" ToRole="Bill" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__idTable__38996AB5" FromRole="TableFood" ToRole="Bill" />
         </EntityType>
         <EntityType Name="ThongKeBill">
           <Key>
@@ -264,7 +266,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
           <Property Name="DateCheckOut" Type="DateTime" Precision="0" />
           <Property Name="tong" Type="Double" />
         </EntityType>
-        <Association Name="FK__Bill__idTable__4E88ABD4">
+        <Association Name="FK__Bill__idTable__38996AB5">
           <End Role="TableFood" Type="Self.TableFood" Multiplicity="1" />
           <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -276,7 +278,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillInfo__idBill__5070F446">
+        <Association Name="FK__BillInfo__idBill__398D8EEE">
           <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
           <End Role="BillInfo" Type="Self.BillInfo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -300,7 +302,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillInfo__idFood__5165187F">
+        <Association Name="FK__BillInfo__idFood__3A81B327">
           <End Role="Food" Type="Self.Food" Multiplicity="1" />
           <End Role="BillInfo" Type="Self.BillInfo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -312,7 +314,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Food__idCategory__52593CB8">
+        <Association Name="FK__Food__idCategory__3B75D760">
           <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="1" />
           <End Role="Food" Type="Self.Food" Multiplicity="*" />
           <ReferentialConstraint>
@@ -333,11 +335,11 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
           <EntitySet Name="FoodCategories" EntityType="Self.FoodCategory" />
           <EntitySet Name="TableFoods" EntityType="Self.TableFood" />
           <EntitySet Name="ThongKeBills" EntityType="Self.ThongKeBill" />
-          <AssociationSet Name="FK__Bill__idTable__4E88ABD4" Association="Self.FK__Bill__idTable__4E88ABD4">
+          <AssociationSet Name="FK__Bill__idTable__38996AB5" Association="Self.FK__Bill__idTable__38996AB5">
             <End Role="TableFood" EntitySet="TableFoods" />
             <End Role="Bill" EntitySet="Bills" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillInfo__idBill__5070F446" Association="Self.FK__BillInfo__idBill__5070F446">
+          <AssociationSet Name="FK__BillInfo__idBill__398D8EEE" Association="Self.FK__BillInfo__idBill__398D8EEE">
             <End Role="Bill" EntitySet="Bills" />
             <End Role="BillInfo" EntitySet="BillInfoes" />
           </AssociationSet>
@@ -345,11 +347,11 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Bill" EntitySet="Bills" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillInfo__idFood__5165187F" Association="Self.FK__BillInfo__idFood__5165187F">
+          <AssociationSet Name="FK__BillInfo__idFood__3A81B327" Association="Self.FK__BillInfo__idFood__3A81B327">
             <End Role="Food" EntitySet="Foods" />
             <End Role="BillInfo" EntitySet="BillInfoes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Food__idCategory__52593CB8" Association="Self.FK__Food__idCategory__52593CB8">
+          <AssociationSet Name="FK__Food__idCategory__3B75D760" Association="Self.FK__Food__idCategory__3B75D760">
             <End Role="FoodCategory" EntitySet="FoodCategories" />
             <End Role="Food" EntitySet="Foods" />
           </AssociationSet>
@@ -402,6 +404,7 @@ warning 6002: The table/view 'QuanLyQuanCafe.dbo.ThongKeBills' does not have a p
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="point" ColumnName="point" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
