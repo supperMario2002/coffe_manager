@@ -129,13 +129,15 @@ namespace CoffeManager
                         try
                         {
                             PdfPTable pdfTable = new PdfPTable(dataGridiew1.Columns.Count);
-                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.DefaultCell.Padding = 5;
                             pdfTable.WidthPercentage = 100;
                             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
 
                             foreach (DataGridViewColumn column in dataGridiew1.Columns)
                             {
                                 PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
                                 pdfTable.AddCell(cell);
                             }
 
@@ -170,6 +172,16 @@ namespace CoffeManager
             {
                 MessageBox.Show("Không có bản ghi nào được Export!!!", "Info");
             }
+        }
+
+        private void thốngKêHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void thốngKêMónĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
     

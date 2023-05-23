@@ -33,6 +33,8 @@ namespace quanlycoffe
             this.qlnv = new System.Windows.Forms.ToolStripMenuItem();
             this.ban = new System.Windows.Forms.ToolStripMenuItem();
             this.thongke = new System.Windows.Forms.ToolStripMenuItem();
+            this.tkMonAn = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tkhoadon = new System.Windows.Forms.ToolStripMenuItem();
             this.qldanhmuc = new System.Windows.Forms.ToolStripMenuItem();
             this.qldoan = new System.Windows.Forms.ToolStripMenuItem();
             this.logOut = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +54,8 @@ namespace quanlycoffe
             this.logOut});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(883, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(662, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -61,35 +63,51 @@ namespace quanlycoffe
             // 
             this.qlnv.BackColor = System.Drawing.SystemColors.Control;
             this.qlnv.Name = "qlnv";
-            this.qlnv.Size = new System.Drawing.Size(140, 24);
+            this.qlnv.Size = new System.Drawing.Size(115, 20);
             this.qlnv.Text = "Quản lý nhân viên";
             this.qlnv.Click += new System.EventHandler(this.quảnLýNhânViênToolStripMenuItem_Click);
             // 
             // ban
             // 
             this.ban.Name = "ban";
-            this.ban.Size = new System.Drawing.Size(102, 24);
+            this.ban.Size = new System.Drawing.Size(83, 20);
             this.ban.Text = "Quản lý bàn";
             this.ban.Click += new System.EventHandler(this.quảnLýBànToolStripMenuItem_Click);
             // 
             // thongke
             // 
+            this.thongke.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tkMonAn,
+            this.Tkhoadon});
             this.thongke.Name = "thongke";
-            this.thongke.Size = new System.Drawing.Size(84, 24);
+            this.thongke.Size = new System.Drawing.Size(68, 20);
             this.thongke.Text = "Thống kê";
-            this.thongke.Click += new System.EventHandler(this.thongke_Click);
+            // 
+            // tkMonAn
+            // 
+            this.tkMonAn.Name = "tkMonAn";
+            this.tkMonAn.Size = new System.Drawing.Size(180, 22);
+            this.tkMonAn.Text = "Thống kê món Ăn";
+            this.tkMonAn.Click += new System.EventHandler(this.tkMonAn_Click);
+            // 
+            // Tkhoadon
+            // 
+            this.Tkhoadon.Name = "Tkhoadon";
+            this.Tkhoadon.Size = new System.Drawing.Size(180, 22);
+            this.Tkhoadon.Text = "Thống Kê hóa đơn";
+            this.Tkhoadon.Click += new System.EventHandler(this.Tkhoadon_Click);
             // 
             // qldanhmuc
             // 
             this.qldanhmuc.Name = "qldanhmuc";
-            this.qldanhmuc.Size = new System.Drawing.Size(142, 24);
+            this.qldanhmuc.Size = new System.Drawing.Size(117, 20);
             this.qldanhmuc.Text = "Quản lý danh mục";
             this.qldanhmuc.Click += new System.EventHandler(this.qldanhmuc_Click);
             // 
             // qldoan
             // 
             this.qldoan.Name = "qldoan";
-            this.qldoan.Size = new System.Drawing.Size(115, 24);
+            this.qldoan.Size = new System.Drawing.Size(93, 20);
             this.qldoan.Text = "Quản lý đồ ăn";
             this.qldoan.Click += new System.EventHandler(this.quảnLýĐồĂnToolStripMenuItem_Click);
             // 
@@ -99,7 +117,7 @@ namespace quanlycoffe
             this.logOut.BackColor = System.Drawing.Color.Red;
             this.logOut.Name = "logOut";
             this.logOut.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.logOut.Size = new System.Drawing.Size(93, 24);
+            this.logOut.Size = new System.Drawing.Size(74, 20);
             this.logOut.Text = "Đăng Xuất";
             this.logOut.Click += new System.EventHandler(this.logOut_Click);
             // 
@@ -109,21 +127,21 @@ namespace quanlycoffe
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Location = new System.Drawing.Point(0, 31);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(883, 602);
+            this.panel1.Size = new System.Drawing.Size(662, 489);
             this.panel1.TabIndex = 1;
             // 
             // fmMainAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 633);
+            this.ClientSize = new System.Drawing.Size(662, 514);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fmMainAdmin";
             this.Text = "fmMain";
             this.menuStrip1.ResumeLayout(false);
@@ -143,5 +161,7 @@ namespace quanlycoffe
         private System.Windows.Forms.ToolStripMenuItem qldoan;
         private System.Windows.Forms.ToolStripMenuItem logOut;
         private System.Windows.Forms.ToolStripMenuItem qldanhmuc;
+        private System.Windows.Forms.ToolStripMenuItem tkMonAn;
+        private System.Windows.Forms.ToolStripMenuItem Tkhoadon;
     }
 }

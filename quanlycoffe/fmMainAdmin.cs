@@ -50,13 +50,9 @@ namespace quanlycoffe
             ban.BackColor = Color.White;
             qldoan.BackColor = Color.White;
             qldanhmuc.BackColor = Color.White;
+            
         }
-        private void thongke_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new frmThongKe());
-            set();
-            thongke.BackColor = Color.CadetBlue;
-        }
+        
 
         private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -91,6 +87,16 @@ namespace quanlycoffe
             OpenChildForm(new fmQLDanhMuc());
             set();
             qldanhmuc.BackColor = Color.CadetBlue;
+        }
+
+        private void tkMonAn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmThongKeDoAn());
+        }
+
+        private void Tkhoadon_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmThongKe());
         }
     }
 }

@@ -246,6 +246,12 @@
     <Compile Include="frmThongKeDetail.designer.cs">
       <DependentUpon>frmThongKeDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThongKeDoAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongKeDoAn.Designer.cs">
+      <DependentUpon>frmThongKeDoAn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -307,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThongKeDetail.resx">
       <DependentUpon>frmThongKeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongKeDoAn.resx">
+      <DependentUpon>frmThongKeDoAn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

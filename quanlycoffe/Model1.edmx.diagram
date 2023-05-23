@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="13807f76e10e409dae19522bc052e055" Name="Diagram1">
+      <Diagram DiagramId="181c0efc99d94f0985526ad328e0e05f" Name="Diagram1">
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.Account" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.Bill" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.BillInfo" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
@@ -13,11 +13,11 @@
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.FoodCategory" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.TableFood" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyQuanCafeModel.ThongKeBill" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="QuanLyQuanCafeModel.FK__Bill__idTable__38996AB5" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyQuanCafeModel.FK__BillInfo__idBill__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafeModel.FK__Bill__idTable__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafeModel.FK__BillInfo__idBill__5070F446" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyQuanCafeModel.FK_Bill_Cusstomer" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyQuanCafeModel.FK__BillInfo__idFood__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyQuanCafeModel.FK__Food__idCategory__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafeModel.FK__BillInfo__idFood__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafeModel.FK__Food__idCategory__52593CB8" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
